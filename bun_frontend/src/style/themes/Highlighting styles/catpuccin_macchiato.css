@@ -1,0 +1,25 @@
+/*!
+This Highlight theme is based on:
+Catpuccin Theme Macchiato - https://github.com/catppuccin/catppuccin
+
+Custom highlight theme made by @Mochitto, 2023
+ */
+:root, .card.nightMode{
+    --rosewater: #f4dbd6;
+    --flamingo: #f0c6c6;
+    --pink: #f5bde6;
+    --mauve: #c6a0f6;
+    --red: #ed8796;
+    --maroon: #ee99a0;
+    --peach: #f5a97f;
+    --yellow: #eed49f;
+    --green: #a6da95;
+    --teal: #8db5ca;
+    --sky: #91d7e3;
+    --sapphire: #7dc4e4;
+    --blue: #8aadf4;
+    --lavender: #b7bdf8;
+    --code-text: #cad3f5;
+    --code-comment: #b8c0e0;
+    --code-background: #24273a;
+  }

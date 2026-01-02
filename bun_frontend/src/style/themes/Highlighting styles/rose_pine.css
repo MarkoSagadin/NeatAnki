@@ -1,0 +1,18 @@
+/*!
+This Highlight theme is based on:
+Rose' pine palette: https://rosepinetheme.com/palette
+
+Custom Ui theme made by @Mochitto, 2023
+ */
+:root.nightMode, .card.nightMode {
+  --love: #eb6f92;
+  --gold: #f6c177;
+  --rose: #ebbcba;
+  --pine: #31748f;
+  --foam: #9ccfd8;
+  --iris: #c4a7e7;
+  --code-background: #191724;
+  --code-text: #e0def4;
+  --code-comment: #908caa;
+
+}

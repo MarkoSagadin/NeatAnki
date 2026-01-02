@@ -1,0 +1,13 @@
+{
+  "name": "bun_frontend",
+  "module": "index.js",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.97.1"
+  },
+    "scripts":{
+    "build_themeless": "bun build_themeless.js",
+    "build_theme": "bun build_theme.js",
+}
+}

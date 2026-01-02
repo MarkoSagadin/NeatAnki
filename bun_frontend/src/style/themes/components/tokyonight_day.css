@@ -1,0 +1,44 @@
+/*!
+This theme is based on:
+Tokyo Night Day - https://github.com/tokyo-night/tokyo-night-vscode-theme
+
+Custom theme made by @MarkoSagadin, 2025
+ */
+
+:root, .card{
+    --main-background: #e6e7ed;
+    --secondary-background: #cdced4;
+    --tabs-label-background: #b3b4ba;
+    --accent-background: #8c4351;
+    --cloze-background: #5a3e8e;
+    --codeline-hover-background: rgba(108,110,117, 0.2);
+    --main-color: #0f4b6e;
+    --secondary-color: #6c6e75;
+    --accent-color: #2959aa;
+    --cloze-color: #e6e7ed;
+    --h1: #2959aa;
+    --h2: #5a3e8e;
+    --h3: #8c4351;
+    --h4: #8f5e15;
+    --h5: #385f0d;
+    --h6: #0f4b6e;
+
+    /* Code block highlighting */
+    --background: #e6e7ed;
+    --foreground: #343b58;
+    --black:   #e6e7ed;
+    --red:     #8c4351;
+    --green:   #33635c;
+    --yellow:  #8f5e15;
+    --blue:    #2959aa;
+    --magenta: #5a3e8e;
+    --cyan:    #0f4b6e;
+    --white:   #343b58;
+    --bright_black:   #6c6e75;
+    --bright_white:   #343b58;
+    --constant: #965027;
+    --string: #385f0d;
+    --code-text: #343b58;
+    --code-comment: #6c6e75;
+    --code-background: #e6e7ed
+}

@@ -1,0 +1,18 @@
+/*!
+This Highlight theme is based on:
+Rose' pine palette: https://rosepinetheme.com/palette
+
+Custom highlight theme made by @Mochitto, 2023
+ */
+:root, .card{
+  --love: #b4637a;
+  --gold: #ea9d34;
+  --rose: #d7827e;
+  --pine: #286983;
+  --foam: #56949f;
+  --iris: #907aa9;
+  --code-background: #faf4ed;
+  --code-text: #575279;
+  --code-comment: #797593;
+
+}
