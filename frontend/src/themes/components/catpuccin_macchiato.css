@@ -1,0 +1,47 @@
+/*!
+This theme is based on:
+Catpuccin Theme Macchiato - https://github.com/catppuccin/catppuccin
+
+Custom theme made by @Mochitto, 2023
+ */
+
+:root, .card.nightMode {
+    --main-background: #24273a; /* This is used for the tabs' body */
+    --secondary-background: #1e2030; /* This is used for the tabs-bar background */
+    --tabs-label-background: #181926; /* This is used for inactive tabs */
+    --accent-background: #c6a0f6;
+    --cloze-background: #ed8796;
+
+    --codeline-hover-background: rgba(76, 79, 105, 0.1); /* Usually you can use the text rgb with a=0.1 for this. */
+
+    --main-color: #cad3f5;
+    --secondary-color: #a5adcb;
+    --accent-color: #c6a0f6;
+    --cloze-color: #24273a;
+
+    --h1: #c6a0f6;
+    --h2: #ed8796;
+    --h3: #f5a97f;
+    --h4: #eed49f;
+    --h5: #a6da95;
+    --h6: #91d7e3;
+
+    /* Code block highlighting */
+    --rosewater: #f4dbd6;
+    --flamingo: #f0c6c6;
+    --pink: #f5bde6;
+    --mauve: #c6a0f6;
+    --red: #ed8796;
+    --maroon: #ee99a0;
+    --peach: #f5a97f;
+    --yellow: #eed49f;
+    --green: #a6da95;
+    --teal: #8db5ca;
+    --sky: #91d7e3;
+    --sapphire: #7dc4e4;
+    --blue: #8aadf4;
+    --lavender: #b7bdf8;
+    --code-text: #cad3f5;
+    --code-comment: #b8c0e0;
+    --code-background: #24273a;
+}

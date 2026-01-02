@@ -1,0 +1,39 @@
+/*!
+This theme is based on:
+Rose Pine Dawn - https://rosepinetheme.com/palette
+
+Custom theme made by @Mochitto, 2023
+ */
+
+:root, .card{
+    --main-background: #faf4ed; /* This is used for the tabs' body */
+    --secondary-background: #dfdad9; /* This is used for the tabs-bar background */
+    --tabs-label-background: #cecacd; /* This is used for inactive tabs */
+    --accent-background: #b4637a;
+    --cloze-background: #286983; 
+
+    --codeline-hover-background: rgb(87, 82, 121, 0.1); /* Usually you can use the text rgb with a=0.1 for this. */
+
+    --main-color: #575279;
+    --secondary-color: #797593;
+    --accent-color: #b4637a;
+    --cloze-color: #faf4ed;
+
+    --h1: #286983;
+    --h2: #ea9d34;
+    --h3: #56949f;
+    --h4: #907aa9;
+    --h5: #b4637a;
+    --h6: #d7827e;
+
+    /* Code block highlighting */
+    --love: #b4637a;
+    --gold: #ea9d34;
+    --rose: #d7827e;
+    --pine: #286983;
+    --foam: #56949f;
+    --iris: #907aa9;
+    --code-background: #faf4ed;
+    --code-text: #575279;
+    --code-comment: #797593;
+}

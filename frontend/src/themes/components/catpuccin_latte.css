@@ -1,0 +1,47 @@
+/*!
+This theme is based on:
+Catpuccin Theme Latte - https://github.com/catppuccin/catppuccin
+
+Custom theme made by @Mochitto, 2023
+ */
+
+:root, .card{
+    --main-background: #eff1f5; /* This is used for the tabs' body */
+    --secondary-background: #e6e9ef; /* This is used for the tabs-bar background and for inline-code */
+    --tabs-label-background: #dce0e8; /* This is used for inactive tabs */
+    --accent-background: #8839ef;
+    --cloze-background: #d20f39; 
+
+    --codeline-hover-background: rgba(76, 79, 105, 0.1); /* Usually you can use the text rgb with a=0.1 for this. */
+
+    --main-color: #4c4f69;
+    --secondary-color: #9ca0b0;
+    --accent-color: #8839ef;
+    --cloze-color: #eff1f5;
+
+    --h1: #8839ef;
+    --h2: #d20f39;
+    --h3: #fe640b;
+    --h4: #df8e1d;
+    --h5: #40a02b;
+    --h6: #04a5e5;
+
+    /* Code block highlighting */
+    --rosewater: #dc8a78;
+    --flamingo: #dd7878;
+    --pink: #ea76cb;
+    --mauve: #8839ef;
+    --red: #d20f39;
+    --maroon: #e64553;
+    --peach: #fe640b;
+    --yellow: #df8e1d;
+    --green: #40a02b;
+    --teal: #179299;
+    --sky: #04a5e5;
+    --sapphire: #209fb5;
+    --blue: #1e66f5;
+    --lavender: #7287fd;
+    --code-text: #4c4f69;
+    --code-comment: #9ca0b0;
+    --code-background: #eff1f5;
+}

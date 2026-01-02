@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anki code</title>
+    <link rel="stylesheet" href="../dist/tokyonight_storm.css" />
+  </head>
+  <body style="overflow: hidden">
+    <!-- Needed to avoid scrollbars on absolute elements-->
+    <main>
+      <div class="l-col-flex l-viewport">
+        <div class="card-body">
+          <div class="card-body__content">
+            <p>Here is some code, this does {{C1:: sorting}.</p>
+            <section class="highlight highlight--linenos">
+              <span class="highlight__language">Python</span>
+              <div
+                class="highlight__code highlight__code--scrollable-code highlight--linenos"
+              >
+                <pre><span></span><span class='highlight__line highlight__line--scrollable-code'><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span>
+</span><span class='highlight__line highlight__line--scrollable-code'><span class="c1"># New list</span>
+</span><span class='highlight__line highlight__line--scrollable-code'><span class="n">sorted_list</span> <span class="o">=</span> <span class="p">{{</span><span class="n">C1</span><span class="p">::</span><span class="nb">sorted</span><span class="p">}}(</span><span class="n">my_list</span><span class="p">,</span> <span class="p">{{</span><span class="n">C1</span><span class="p">::</span><span class="kc">True</span><span class="p">}})</span>
+</span><span class='highlight__line highlight__line--scrollable-code'><span class="c1"># In place</span>
+</span><span class='highlight__line highlight__line--scrollable-code'><span class="n">my_list</span><span class="o">.</span><span class="p">{{</span><span class="n">C1</span><span class="p">::</span><span class="n">sort</span><span class="p">}}(</span><span class="kc">True</span><span class="p">)</span>
+</span></pre>
+              </div>
+            </section>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              pharetra finibus quam quis euismod. Nulla ut pellentesque enim.
+              Phasellus fringilla vel ligula in ultricies. Sed luctus suscipit
+              justo. Aliquam porttitor volutpat urna, eu eleifend dolor dictum
+              in. Ut finibus laoreet efficitur. Nulla posuere mi eget orci
+              porta, eget faucibus lectus rutrum. Proin mattis est purus, eget
+              varius sapien mattis sit amet. Sed nisl ante, facilisis id justo
+              ut, tempor tristique nisl. Mauris maximus magna lorem, a gravida
+              dolor mollis finibus. Integer ac malesuada augue. Etiam non
+              consequat orci. Maecenas tincidunt purus sed velit viverra, vel
+              tincidunt sapien finibus. Phasellus magna libero, mattis et
+              malesuada id, feugiat a nisi. Donec arcu mi, pulvinar id
+              pellentesque volutpat, rutrum nec dui.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              pharetra finibus quam quis euismod. Nulla ut pellentesque enim.
+              Phasellus fringilla vel ligula in ultricies. Sed luctus suscipit
+              justo. Aliquam porttitor volutpat urna, eu eleifend dolor dictum
+              in. Ut finibus laoreet efficitur. Nulla posuere mi eget orci
+              porta, eget faucibus lectus rutrum. Proin mattis est purus, eget
+              varius sapien mattis sit amet. Sed nisl ante, facilisis id justo
+              ut, tempor tristique nisl. Mauris maximus magna lorem, a gravida
+              dolor mollis finibus. Integer ac malesuada augue. Etiam non
+              consequat orci. Maecenas tincidunt purus sed velit viverra, vel
+              tincidunt sapien finibus. Phasellus magna libero, mattis et
+              malesuada id, feugiat a nisi. Donec arcu mi, pulvinar id
+              pellentesque volutpat, rutrum nec dui.
+            </p>
+          </div>
+        </div>
+        <hr class="divider" />
+        <div class="card-body">
+          <div class="card-body__content">
+            <p>
+              Above code shows which function should be used to sort a list.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              pharetra finibus quam quis euismod. Nulla ut pellentesque enim.
+              Phasellus fringilla vel ligula in ultricies. Sed luctus suscipit
+              justo. Aliquam porttitor volutpat urna, eu eleifend dolor dictum
+              in. Ut finibus laoreet efficitur. Nulla posuere mi eget orci
+              porta, eget faucibus lectus rutrum. Proin mattis est purus, eget
+              varius sapien mattis sit amet. Sed nisl ante, facilisis id justo
+              ut, tempor tristique nisl. Mauris maximus magna lorem, a gravida
+              dolor mollis finibus. Integer ac malesuada augue. Etiam non
+              consequat orci. Maecenas tincidunt purus sed velit viverra, vel
+              tincidunt sapien finibus. Phasellus magna libero, mattis et
+              malesuada id, feugiat a nisi. Donec arcu mi, pulvinar id
+              pellentesque volutpat, rutrum nec dui.
+            </p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+              pharetra finibus quam quis euismod. Nulla ut pellentesque enim.
+              Phasellus fringilla vel ligula in ultricies. Sed luctus suscipit
+              justo. Aliquam porttitor volutpat urna, eu eleifend dolor dictum
+              in. Ut finibus laoreet efficitur. Nulla posuere mi eget orci
+              porta, eget faucibus lectus rutrum. Proin mattis est purus, eget
+              varius sapien mattis sit amet. Sed nisl ante, facilisis id justo
+              ut, tempor tristique nisl. Mauris maximus magna lorem, a gravida
+              dolor mollis finibus. Integer ac malesuada augue. Etiam non
+              consequat orci. Maecenas tincidunt purus sed velit viverra, vel
+              tincidunt sapien finibus. Phasellus magna libero, mattis et
+              malesuada id, feugiat a nisi. Donec arcu mi, pulvinar id
+              pellentesque volutpat, rutrum nec dui.
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="../dist/main.js"></script>
+  </body>
+</html>

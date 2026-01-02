@@ -1,0 +1,9 @@
+{
+  "name": "bun_frontend",
+  "module": "index.js",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "sass": "^1.97.1"
+  },
+}

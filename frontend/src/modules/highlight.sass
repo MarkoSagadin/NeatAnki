@@ -1,0 +1,69 @@
+.highlight
+    counter-reset: line
+    text-align: left
+    margin-bottom: 1em
+
+    &--linenos .highlight__line:before
+        position: absolute
+        counter-increment: line
+        content: counter(line)
+        height: 100%
+        border-right: 1px solid var(--main-color)
+        color: var(--main-color)
+        width: 35px
+        padding: 0 10px 0 0
+        text-align: right
+        left: 0
+        cursor: default
+
+    &--linenos .highlight__line:hover:before
+        color: var(--accent-color)
+
+.highlight__line
+        display: block
+        position: relative
+        white-space: pre-wrap
+        overflow-wrap: anywhere
+        cursor: text
+        &:hover
+            background: var(--codeline-hover-background)
+            opacity: 1
+
+        &--scrollable-code
+            white-space: pre
+            overflow-wrap: normal
+
+body:has(.highlight--linenos)
+  .highlight__line
+    padding-left: 50px
+
+.highlight__line:empty:after // Fixes empty lines
+    content: " "
+
+.highlight__language
+        display: inline-block
+        padding: 3px 10px 10px 10px
+        background: var(--accent-color)
+        user-select: none
+        border-bottom: none
+        color: var(--main-background)
+        border-radius: 10px 10px 0px 0px
+        z-index: 1
+        position: relative
+
+
+.highlight__code
+    font-size: 1.7rem
+    width: 100%
+    border: 3px solid var(--accent-color)
+    padding: 5px
+    border-radius: 10px
+    position: relative
+    top: -0.5em
+    z-index: 2
+
+    &--scrollable-code
+      overflow-x: scroll
+
+.highlight + br // This br is added to allow users to write outside of the generated highlight container on anki
+    display: none
