@@ -1,0 +1,39 @@
+/*!
+This theme is based on:
+Rose Pine - https://rosepinetheme.com/palette
+
+Custom theme made by @Mochitto, 2023
+ */
+
+:root, .card.nightMode {
+    --main-background: #191724; /* This is used for the tabs' body */
+    --secondary-background: #26233a; /* This is used for the tabs-bar background */
+    --tabs-label-background: #1f1d2e; /* This is used for inactive tabs */
+    --accent-background: #f6c177;
+    --cloze-background: #eb6f92;
+
+    --codeline-hover-background: rgba(224, 222, 244, 0.1); /* Usually you can use the text rgb with a=0.1 for this. */
+
+    --main-color: #e0def4;
+    --secondary-color: #908caa;
+    --accent-color: #f6c177;
+    --cloze-color: #191724;
+
+    --h1: #eb6f92;
+    --h2: #f6c177;
+    --h3: #9ccfd8;
+    --h4: #c4a7e7;
+    --h5: #31748f;
+    --h6: #ebbcba;
+
+    /* Code block highlighting */
+    --love: #eb6f92;
+    --gold: #f6c177;
+    --rose: #ebbcba;
+    --pine: #31748f;
+    --foam: #9ccfd8;
+    --iris: #c4a7e7;
+    --code-background: #191724;
+    --code-text: #e0def4;
+    --code-comment: #908caa;
+}
