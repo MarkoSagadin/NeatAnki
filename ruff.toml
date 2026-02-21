@@ -1,0 +1,32 @@
+[lint]
+# Select everything and then ignore the annoying ones.
+select = ["ALL"]
+ignore = [
+    "TD",
+    "FIX",
+    "ERA",
+    "G",
+    "FA",
+    "D100",
+    "D101",
+    "D103",
+    "D104",
+    "D105",
+    "D107",
+    "D205",
+    "D301",
+    "TRY400",
+    "ANN003",
+    "ANN101",
+    "ANN102",
+    "ANN204"
+]
+
+# ERA: Ignore warnings about commented out code for now, but enable it later
+
+[lint.pydocstyle]
+convention = "google"
+
+# Ignore "assert in code" in tests, there it makes sense
+[lint.per-file-ignores]
+"tests/*.py" = ["S101"]
