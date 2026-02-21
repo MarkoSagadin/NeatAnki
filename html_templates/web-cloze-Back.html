@@ -1,0 +1,25 @@
+<!doctype html>
+<!-- Template suitable for viewing in browser. -->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Anki code</title>
+    <link rel="stylesheet" href="dist/style/main.css" />
+  </head>
+  <body style="overflow: hidden">
+    <!-- Needed to avoid scrollbars on absolute elements-->
+    <main>
+      <div class="l-viewport">
+        <div class="l-col-flex">
+          {{cloze:Text}}
+          <hr class="divider" />
+          {{Back Extra}}
+        </div>
+        <div class="tags">{{Tags}}</div>
+      </div>
+    </main>
+    <script src="dist/main.js"></script>
+  </body>
+</html>
