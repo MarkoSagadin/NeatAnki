@@ -3,12 +3,12 @@ from dataclasses import dataclass
 from enum import Enum
 from typing import Any
 
-from md2anki.modules.ankicard.helpers import extract_card_fields, extract_cards
-from md2anki.modules.ankicard.process_card.compile import text_fields_to_html_fields
-from md2anki.modules.ankicard.process_card.format.wrappers import wrap_card_body
-from md2anki.modules.ankicard.process_clozes import HandleClozes, are_clozes_in_card
-from md2anki.modules.ankicard.utils.card_error import CardError
-from md2anki.modules.markdownfile import MarkdownFile, MarkdownMetadata
+from nanki.modules.ankicard.helpers import extract_card_fields, extract_cards
+from nanki.modules.ankicard.process_card.compile import text_fields_to_html_fields
+from nanki.modules.ankicard.process_card.format.wrappers import wrap_card_body
+from nanki.modules.ankicard.process_clozes import HandleClozes, are_clozes_in_card
+from nanki.modules.ankicard.utils.card_error import CardError
+from nanki.modules.markdownfile import MarkdownFile, MarkdownMetadata
 
 # NOTE: if changes are made to the cards' HTML/CSS/JS, you also want to look into
 # cards_specific_wrappers' functions

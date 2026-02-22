@@ -1,5 +1,5 @@
 [project]
-name = "md2anki"
+name = "nanki"
 version = "0.1.0"
 description = "A tool for converting Markdown notes into neat-looking Anki cards."
 readme = "README.md"
@@ -17,7 +17,7 @@ dependencies = [
 dev = ["pytest"]
 
 [project.scripts]
-md2anki = "md2anki.main:main"
+nanki = "nanki.main:main"
 
 [build-system]
 requires = ["setuptools>=80.9.0", "setuptools-scm"]

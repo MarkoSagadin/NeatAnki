@@ -1,8 +1,8 @@
 import logging
 import re
 
-from md2anki.modules.ankicard.utils.card_error import CardError
-from md2anki.modules.ankicard.utils.debug_tools import expressive_debug
+from nanki.modules.ankicard.utils.card_error import CardError
+from nanki.modules.ankicard.utils.debug_tools import expressive_debug
 
 logger = logging.getLogger(__name__)
 

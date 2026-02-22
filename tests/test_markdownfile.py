@@ -3,7 +3,7 @@ from pathlib import Path
 import pytest
 from helpers import create_and_write
 
-from md2anki.modules.markdownfile import MarkdownFile
+from nanki.modules.markdownfile import MarkdownFile
 
 good_md = """---
 deck_name: Deck name

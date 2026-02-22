@@ -4,11 +4,11 @@ from pathlib import Path
 
 import click
 
-from md2anki.modules.ankicard import AnkiCard
-from md2anki.modules.ankiconnect import AnkiConnect
-from md2anki.modules.filedata import FileData
-from md2anki.modules.markdownfile import MarkdownFile
-from md2anki.modules.testfile import TestFile
+from nanki.modules.ankicard import AnkiCard
+from nanki.modules.ankiconnect import AnkiConnect
+from nanki.modules.filedata import FileData
+from nanki.modules.markdownfile import MarkdownFile
+from nanki.modules.testfile import TestFile
 
 logger = logging.getLogger(__name__)
 
@@ -44,7 +44,7 @@ logger = logging.getLogger(__name__)
 @click.option(
     "-o",
     "--output-dir",
-    default="md2anki_out",
+    default="nanki_out",
     help="Path to output dir",
 )
 # TODO: output-dir should always be cleaned, or you can do the same thing as twister
@@ -139,7 +139,7 @@ def run(path: str) -> None:
 #     # Next things to implement.
 #     # Commented options should be removed
 #     obsdian_vault = " "
-#     image_dir = "/home/skobec/Programs/md2anki/input_images"
+#     image_dir = "/home/skobec/Programs/nanki/input_images"
 #     try:
 #         cards_with_info = markdown_to_anki(
 #             markdown_handle.content,

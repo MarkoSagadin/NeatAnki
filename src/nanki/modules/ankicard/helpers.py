@@ -1,7 +1,7 @@
 import logging
 import re
 
-from md2anki.modules.ankicard.utils.card_error import CardError
+from nanki.modules.ankicard.utils.card_error import CardError
 
 logger = logging.getLogger(__name__)
 

@@ -51,8 +51,8 @@ class MarkdownMetadata:
 
         tags = metadata.get("tags", [])
 
-        # Add a default "md2anki" tag
-        metadata["tags"] = ["md2anki", *tags]
+        # Add a default "nanki" tag
+        metadata["tags"] = ["nanki", *tags]
 
         return cls(**metadata)
 

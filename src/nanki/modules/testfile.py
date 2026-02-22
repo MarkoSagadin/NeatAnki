@@ -4,8 +4,8 @@ from pathlib import Path
 from re import Match
 from typing import Any, Self
 
-from md2anki.modules.ankicard import AnkiCard
-from md2anki.modules.filedata import FileData
+from nanki.modules.ankicard import AnkiCard
+from nanki.modules.filedata import FileData
 
 
 @dataclass

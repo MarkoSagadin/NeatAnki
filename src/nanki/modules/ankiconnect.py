@@ -4,7 +4,7 @@ import sys
 
 import requests
 
-from md2anki.modules.ankicard import AnkiCard
+from nanki.modules.ankicard import AnkiCard
 
 logger = logging.getLogger(__name__)
 
