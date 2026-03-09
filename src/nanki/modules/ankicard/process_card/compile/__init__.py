@@ -11,13 +11,12 @@ import pygments.util
 logger = logging.getLogger(__name__)
 
 
-def text_fields_to_html_fields(card_fields: dict, *, linenos: bool) -> dict:
-    """Convert card text fields to html fields."""
-    # TODO: decide what to do with scrollable_code. figure our a better function naming.
+def card_fields_to_html_text(card_fields: dict) -> dict:
+    """Convert card text fields to html text."""
     return {
         field: markdown_to_html_with_highlight(
             text,
-            linenos=linenos,
+            linenos=True,
             scrollable_code=True,
         )
         for field, text in card_fields.items()

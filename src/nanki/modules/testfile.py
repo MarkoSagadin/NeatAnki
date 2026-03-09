@@ -1,3 +1,4 @@
+import logging
 import re
 from dataclasses import dataclass
 from pathlib import Path
@@ -6,6 +7,8 @@ from typing import Any, Self
 
 from nanki.modules.ankicard import AnkiCard
 from nanki.modules.filedata import FileData
+
+log = logging.getLogger(__name__)
 
 
 @dataclass
@@ -25,8 +28,8 @@ class TestFile(FileData):
         - css file
         - script file
 
-        They are all handled here because if css or script files are given then injected
-        anki cards need to know their location as they will reference them.
+        They are all handled here because if css or script files are given, then
+        injected anki cards need to know their location as they will reference them.
         """
         test_files = []
 
@@ -35,8 +38,11 @@ class TestFile(FileData):
                 template_fields = _get_all_fields_from_template(template.content)
 
                 if not template_fields:
-                    # TODO invalid Template, handle this
-                    msg = "Some exception"
+                    msg = (
+                        f"\nNo fields were found in the following template file:"
+                        f"\n\n\t{template.path}\n\n"
+                        "(see card above)"
+                    )
                     raise UserWarning(msg)
 
                 # Replace {{Tags}} with the string of tags. If Anki card has no tags
@@ -89,8 +95,7 @@ def _add_css(content: str, css: str) -> tuple[str, TestFile]:
 
     if m:
         old = m.group(1)
-        # TODO: replace this with Path once you know how.
-        new = f"../{css_path.name}"
+        new = str(Path("..") / css_path.name)
         # Ended up here
         content = content.replace(old, new)
     else:
@@ -118,8 +123,7 @@ def _add_js_script(content: str, script: str) -> tuple[str, TestFile]:
 
     if m:
         old = m.group(1)
-        # TODO: replace this with Path once you know how.
-        new = f"../{script_path.name}"
+        new = str(Path("..") / script_path.name)
         # Ended up here
         content = content.replace(old, new)
     else:

@@ -4,14 +4,11 @@ from enum import Enum
 from typing import Any
 
 from nanki.modules.ankicard.helpers import extract_card_fields, extract_cards
-from nanki.modules.ankicard.process_card.compile import text_fields_to_html_fields
+from nanki.modules.ankicard.process_card.compile import card_fields_to_html_text
 from nanki.modules.ankicard.process_card.format.wrappers import wrap_card_body
 from nanki.modules.ankicard.process_clozes import HandleClozes, are_clozes_in_card
 from nanki.modules.ankicard.utils.card_error import CardError
 from nanki.modules.markdownfile import MarkdownFile, MarkdownMetadata
-
-# NOTE: if changes are made to the cards' HTML/CSS/JS, you also want to look into
-# cards_specific_wrappers' functions
 
 log = logging.getLogger(__name__)
 
@@ -41,8 +38,6 @@ class AnkiCard:
     @classmethod
     def from_markdown_file(cls, md: MarkdownFile) -> list["AnkiCard"]:
         """Create Anki Cards from a single Markdown file."""
-        # TODO: decide what to do with lineos
-
         card_texts = extract_cards(md.content)
 
         cards = []
@@ -52,14 +47,12 @@ class AnkiCard:
                     clozes_handler = HandleClozes(card_text)
                     card_fields = _extract_fields_from_card_text(
                         card_text,
-                        linenos=True,
                     )
                     card_fields = clozes_handler.inject_clozes(card_fields)
                     card = cls(md.metadata, card_fields, CardType.Cloze)
                 else:
                     card_fields = _extract_fields_from_card_text(
                         card_text,
-                        linenos=True,
                     )
                     card = cls(md.metadata, card_fields, CardType.Basic)
 
@@ -106,17 +99,18 @@ class AnkiCard:
         return d
 
 
-def _extract_fields_from_card_text(card_text: str, *, linenos: bool) -> dict:
+def _extract_fields_from_card_text(card_text: str) -> dict:
     """Process a card in markdown to HTML.
 
-    **options kwargs:
-        linenos=True: add line numbers to the highlighted code
+    Two steps are done here:
+
+    1. Each card (string) is converted into a dict, where keys are names of the card
+       fields (exactly the fields that apper in note types in Anki) and values are the
+       text in fields themselves.
+    2. Text in each field gets converted into html eqvivalent.
 
     """
-    # TODO: Improve above doc string
-    # TODO: Move this to some better place, it can't be a method (i think)
-
     card_fields = extract_card_fields(card_text)
-    card_fields = text_fields_to_html_fields(card_fields, linenos=linenos)
+    card_fields = card_fields_to_html_text(card_fields)
 
     return {field: wrap_card_body(text) for (field, text) in card_fields.items()}
