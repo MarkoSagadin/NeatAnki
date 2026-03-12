@@ -46,14 +46,12 @@ class AnkiCard:
                 if are_clozes_in_card(card_text):
                     clozes_handler = HandleClozes(card_text)
                     card_fields = _extract_fields_from_card_text(
-                        card_text,
+                        clozes_handler.hashed_markdown,
                     )
                     card_fields = clozes_handler.inject_clozes(card_fields)
                     card = cls(md.metadata, card_fields, CardType.Cloze)
                 else:
-                    card_fields = _extract_fields_from_card_text(
-                        card_text,
-                    )
+                    card_fields = _extract_fields_from_card_text(card_text)
                     card = cls(md.metadata, card_fields, CardType.Basic)
 
                 cards.append(card)
