@@ -59,7 +59,7 @@ class AnkiConnect:
                 "Make sure that Anki is running in the background and that AnkiConnect "
                 "plugin is installed.\n"
                 "For additional information, please refer to the AnkiConnect "
-                "documentation: \n\n\thttps://foosoft.net/projects/anki-connect\n\n"
+                "documentation: \n\n\thttps://git.sr.ht/~foosoft/anki-connect\n\n"
                 "Exiting..."
             )
             return False, msg
