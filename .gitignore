@@ -20,3 +20,5 @@ wheels/
 share/python-wheels/
 *.egg-info/
 *.egg
+
+src/nanki/assets/

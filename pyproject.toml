@@ -1,6 +1,6 @@
 [project]
 name = "nanki"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A tool for converting Markdown notes into neat-looking Anki cards."
 readme = "README.md"
 requires-python = ">=3.13"
@@ -8,6 +8,8 @@ dependencies = [
     "click>=8.3.1",
     "jsonschema>=4.25.1",
     "mistune==2.0.4",
+    "platformdirs>=4.9.4",
+    "prompt-toolkit>=3.0.52",
     "pygments>=2.19.2",
     "python-frontmatter>=1.1.0",
     "requests>=2.32.5",
@@ -20,11 +22,17 @@ dev = ["pytest"]
 nanki = "nanki.main:main"
 
 [build-system]
-requires = ["setuptools>=80.9.0", "setuptools-scm"]
+
+# Limit setuptools-scm to be less than v10, as that version throws some warning
+# related to the git versioning.
+requires = ["setuptools>=80.9.0", "setuptools-scm>=8,<10"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+"nanki" = ["assets/**/*"]
 
 [tool.pytest.ini_options]
 pythonpath = ["src"]

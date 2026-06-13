@@ -1,14 +1,18 @@
 import logging
 import shutil as sh
 import sys
+from importlib.resources import files
 from pathlib import Path
 
 import click
+from prompt_toolkit.shortcuts import choice
 
 from nanki.modules.ankicard import AnkiCard
 from nanki.modules.ankiconnect import AnkiConnect
 from nanki.modules.filedata import FileData
 from nanki.modules.markdownfile import MarkdownFile
+from nanki.modules.note_type import NoteType
+from nanki.modules.prompt import prompt
 from nanki.modules.testfile import TestFile
 
 logger = logging.getLogger(__name__)
@@ -130,6 +134,72 @@ def run(path: str) -> None:
     conn.upload_cards(anki_cards)
 
 
+@click.command
+def upload_note_type() -> None:
+    """Upload a note type to the Anki.
+
+    Installation of Nanki comes with a various note types, each one with it's
+    distinct theme. Running this command will start a short wizard-like prompt, where
+    you can decide the names of the note types (both basic and cloze) before uploading
+    them.
+
+    Selected note types will then uploaded to Anki via AnkiConnect plugin.
+
+    If the note type with chosen name exists it won't be overwritten unless desired.
+    """
+    nanki_path = Path(str(files("nanki")))
+    dist_dir = nanki_path / "assets" / "dist"
+    html_templates = nanki_path / "assets" / "html_templates"
+    css_files = dist_dir.glob("*.css")
+    js_file = dist_dir / "main.js"
+
+    try:
+        conn = AnkiConnect()
+    except UserWarning as e:
+        logger.error(e)
+        sys.exit(1)
+
+    css_files = sorted([(f, f.stem.replace("_", " ").title()) for f in css_files])
+
+    chosen_css_file = choice(message="Select CSS file:", options=css_files)
+
+    basic_note_type_name = prompt(
+        "Choose the name of the basic Note Type: ",
+        default="Nanki - Basic",
+    )
+
+    if not basic_note_type_name:
+        logger.error("Can't use a empty string for a Note Type name")
+        sys.exit()
+
+    cloze_note_type_name = prompt(
+        "Choose the name of the cloze Note Type: ",
+        default="Nanki - Cloze",
+    )
+
+    if not cloze_note_type_name:
+        logger.error("Can't use a empty string for a Note Type name")
+        sys.exit()
+
+    basic_note_type = NoteType.from_files(
+        basic_note_type_name,
+        list(html_templates.glob("anki-basic*")),
+        chosen_css_file,
+        js_file,
+    )
+
+    cloze_note_type = NoteType.from_files(
+        cloze_note_type_name,
+        list(html_templates.glob("anki-cloze*")),
+        chosen_css_file,
+        js_file,
+        is_cloze=True,
+    )
+
+    conn.upload_note_type(basic_note_type)
+    conn.upload_note_type(cloze_note_type)
+
+
 # @click.command
 # @click.option("-t", "--template_prefix", help="Html template prefix")
 # @click.argument("path", nargs=1, type=click.Path(), required=True)
@@ -197,6 +267,7 @@ def cli() -> None:
 
 cli.add_command(run)
 cli.add_command(test)
+cli.add_command(upload_note_type)
 
 
 def main() -> None:

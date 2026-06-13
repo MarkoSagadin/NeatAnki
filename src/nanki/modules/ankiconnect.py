@@ -3,8 +3,11 @@ import logging
 import sys
 
 import requests
+from prompt_toolkit.formatted_text import HTML
+from prompt_toolkit.shortcuts import confirm
 
 from nanki.modules.ankicard import AnkiCard
+from nanki.modules.note_type import NoteType
 
 logger = logging.getLogger(__name__)
 
@@ -142,6 +145,46 @@ class AnkiConnect:
         #     logger.info("📺 Sending images to Anki...")
         #     for idx, media_file in enumerate(media_files):
         #         self._upload_media_file(media_file, idx + 1)
+
+    def upload_note_type(self, note_type: NoteType) -> None:
+        """Upload note type."""
+        res, msg = self._send_req("createModel", note_type.to_create_model_api())
+
+        if res:
+            logger.info(f"Note type with {note_type.model_name} uploaded")
+            return
+
+        if msg != "Model name already exists":
+            logger.error(
+                f"🚨 Unexpected error happened while trying to create "
+                f"{note_type.model_name} note type: {msg}",
+            )
+            sys.exit(1)
+
+        answer = confirm(
+            HTML(
+                f"Note type with name <b>{note_type.model_name}</b> already exists.\n"
+                "Do you want to overwrite it's HTML and CSS templates?",
+            ),
+        )
+
+        if answer is False:
+            sys.exit(0)
+
+        res, msg = self._send_req(
+            "updateModelTemplates",
+            note_type.to_update_model_api(),
+        )
+
+        if res:
+            logger.warning(f"Note type with {note_type.model_name} updated")
+            return
+
+        logger.error(
+            f"🚨 Unexpected error happened while trying to update "
+            f"{note_type.model_name} note type: {msg}",
+        )
+        sys.exit(1)
 
     def _check_for_deck(self, deck_name: str) -> None:
         """Check if deck exists in Anki. If it doesn't it creates it."""
