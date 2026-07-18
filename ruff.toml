@@ -19,7 +19,8 @@ ignore = [
     "ANN003",
     "ANN101",
     "ANN102",
-    "ANN204"
+    "ANN204",
+    "PLR2004",
 ]
 
 # ERA: Ignore warnings about commented out code for now, but enable it later

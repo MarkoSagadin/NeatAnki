@@ -133,6 +133,8 @@ def run(path: str) -> None:
 
     conn.upload_cards(anki_cards)
 
+    AnkiCard.write_back_ids(anki_cards)
+
 
 @click.command
 def upload_note_type() -> None:

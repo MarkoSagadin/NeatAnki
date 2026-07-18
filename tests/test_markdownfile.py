@@ -21,7 +21,7 @@ def test_create_a_single_md_file(tmp_path: Path) -> None:
 
     md_file = MarkdownFile.load_files(p)[0]
 
-    assert md_file.content == "some content"
+    assert md_file.content == good_md
     assert md_file.path == p
     assert md_file.metadata.deck_name == "Deck name"
 

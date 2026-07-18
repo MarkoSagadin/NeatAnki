@@ -191,7 +191,7 @@ class AnkiConnect:
         rsp = self._send_cmd("deckNames")
 
         if deck_name not in rsp:
-            self._send_cmd("createDeck", {"deck": deck_name})
+            rsp = self._send_cmd("createDeck", {"deck": deck_name})
             logger.info(f"🔨 Created deck '{deck_name}' in Anki")
 
     def _does_note_type_exist(self, note_type: str) -> bool:
@@ -203,15 +203,32 @@ class AnkiConnect:
         return note_type in self._send_cmd("modelNames")
 
     def _upload_card(self, card: AnkiCard, idx: int) -> None:
-        """Upload card."""
-        res, msg = self._send_req("addNote", card.to_api())
+        """Upload card.
 
-        if res:
-            logger.info(f"|--- ✅ Sent card number {idx}")
-            return
+        Depending on whether the card already has an id or not, a different API call
+        will be used. If card id wasn't set before this function call a successfully
+        upload to Anki will allocate one for it.
+        """
+        if card.id:
+            res, msg = self._send_req("updateNote", card.to_update_note_api())
+            if res:
+                logger.info(f"|--- ✅ Updated card number {idx}")
+                if not card.id:
+                    card.id = int(str(msg))
+                    card.created = True
+                return
+        else:
+            res, msg = self._send_req("addNote", card.to_add_note_api())
+            if res:
+                logger.info(f"|--- ✅ Created card number {idx}")
+                return
 
         if msg == "cannot create note because it is a duplicate":
             logger.info(f"|--- 🔁 Card number {idx} already exists in Anki.")
+            return
+
+        if msg == "Note was not found:":
+            logger.info(f"|--- 🔁 Card number {idx} with id {card.id} was not found")
             return
 
         logger.error(f"Failed to upload card {idx} to Anki: {msg}")

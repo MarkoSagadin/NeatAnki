@@ -8,19 +8,19 @@ import pygments.formatters.html
 import pygments.lexers
 import pygments.util
 
+from nanki.modules.ankicard.process_card.format.wrappers import wrap_card_body
+
 logger = logging.getLogger(__name__)
 
 
 def card_fields_to_html_text(card_fields: dict) -> dict:
     """Convert card text fields to html text."""
-    return {
-        field: markdown_to_html_with_highlight(
-            text,
-            linenos=True,
-            scrollable_code=True,
-        )
-        for field, text in card_fields.items()
-    }
+    fields = {}
+    for k, v in card_fields.items():
+        html = markdown_to_html_with_highlight(v, linenos=True, scrollable_code=True)
+        fields[k] = wrap_card_body(html)
+
+    return fields
 
 
 def markdown_to_html_with_highlight(

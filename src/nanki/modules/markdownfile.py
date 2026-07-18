@@ -59,8 +59,7 @@ class MarkdownMetadata:
 
 @dataclass
 class MarkdownFile(FileData):
-    # the content field contains only the markdown content, the frontmatter data is
-    # validated and stored in the below metadata field.
+    # The frontmatter data is validated and stored in the below metadata field.
     metadata: MarkdownMetadata
 
     @classmethod
@@ -79,10 +78,10 @@ class MarkdownFile(FileData):
         if path.is_file():
             fd = FileData.from_path(path)
 
-            metadata, content = frontmatter.parse(fd.content)
+            metadata, _ = frontmatter.parse(fd.content)
             metadata = MarkdownMetadata.from_metadata(metadata)
 
-            return [cls(fd.path, content, metadata)]
+            return [cls(fd.path, fd.content, metadata)]
 
         if path.is_dir():
             files = []
@@ -93,9 +92,3 @@ class MarkdownFile(FileData):
 
         msg = "Invalid path was given, it isn't a file nor a directory."
         raise ValueError(msg)
-
-    # TODO: remove it, when you are sure you don't need it.
-    def get_frontmatter_text(self) -> str:
-        """Return frontmatter text."""
-        yaml_text = frontmatter.YAMLHandler().export(self.metadata)
-        return "---\n" + yaml_text + "\n---\n\n"
